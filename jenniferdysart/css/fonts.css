@@ -1,0 +1,22 @@
+/*
+ *	WebFont Package Licensed to Sibling Industries
+ */
+
+/* Redaction 35 Regular */
+@font-face {
+	font-family: "Redaction 35";
+	src:	url("../fonts/redaction/eot/Redaction35-Regular.eot"); /* IE9 Compat Modes */
+	src:	url("../fonts/redaction/eot/Redaction35-Regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+			url("../fonts/redaction/woff2/Redaction35-Regular.woff2") format("woff2"), /* Super Modern Browsers */
+			url("../fonts/redaction/woff/Redaction35-Regular.woff") format("woff"); /* Pretty Modern Browsers */
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Necto Mono";
+	src: url("../fonts/Necto-Mono.woff") format("woff"),
+		url("../fonts/Necto-Mono.woff2") format("woff2");
+	font-style: normal;
+}
