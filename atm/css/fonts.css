@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Uchen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amarante&display=swap');
+
+/* mazius */
+@font-face {
+    font-family: 'mazius_review_20.09XIt';
+    src: url('../fonts/mazius_display_extraitalic-webfont.woff2') format('woff2'),
+        url('../fonts/mazius_display_extraitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'mazius_review_20.09XIt';
+    src: url('../fonts/mazius_display_extraitalic-webfont.woff2') format('woff2'),
+        url('../fonts/mazius_display_extraitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'mazius_review_20.09italic';
+    src: url('../fonts/mazius_display_italic-webfont.woff2') format('woff2'),
+        url('../fonts/mazius_display_italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'mazius_review_20.09italic';
+    src: url('mazius_display_italic-webfont.woff2') format('woff2'),
+        url('mazius_display_italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'mazius_review_20.09regular';
+    src: url('mazius_display_regular-webfont.woff2') format('woff2'),
+        url('mazius_display_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'mazius_review_20.09regular';
+    src: url('../fonts/mazius_display_regular-webfont.woff2') format('woff2'),
+        url('../fonts/mazius_display_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* recife */
+@font-face {
+    font-family: 'Recife Upright';
+    src: url('../fonts/RecifeComplete_Variable_Upright_Web_Trial.woff') format('woff'),
+        url('../fonts/RecifeComplete_Variable_Upright_Web_Trial.woff2') format("woff2");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Recife Italic';
+    src: url('../fonts/RecifeComplete_Variable_Italic_Web_Trial.woff') format('woff'),
+        url('../fonts/RecifeComplete_Variable_Italic_Web_Trial.woff2') format("woff2");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Aguafina Script";
+    src: url('../fonts/AguafinaScript-Regular.woff') format('woff');
+    font-style: normal;
+}
+
+/* handwritten fonts */
+@font-face {
+    font-family: "Better Grade";
+    src: url('../fonts/BetterGrade-519DV.woff') format('woff'),
+        url("../fonts/BetterGrade-519DV.woff2") format('woff2');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Bulgatti";
+    src: url("../fonts/Bulgatti-xgMV.woff") format("woff"),
+        url("../fonts/Bulgatti-xgMV.woff2") format("woff2");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Hello Ketta";
+    src: url("../fonts/HelloKetta-d99oX.woff") format("woff"),
+        url("../fonts/HelloKetta-d99oX.woff2") format("woff2");
+    font-style: normal;
+}

@@ -1,0 +1,965 @@
+@import url(fonts.css);
+
+:root {
+    font-family: var(--serif-font);
+    --mono-font: "Necto Mono", "Inconsolata", "Courier New", "Courier", monospace;
+    --serif-font: "Recife Upright", "Reckless", "Times New Roman", "Times", serif;
+    --index-serif-font: "Uchen", "Reckless", "Times New Roman", "Times", serif;
+    --serif-italic: "Recife Italic", serif;
+    --serif-display: "mazius_review_20.09XIt", "Aguafina Script", display;
+    --serif-display-2: "Amarante", display;
+    --sans-serif-font: "Suisse", "Helvetica", "Arial", sans-serif;
+    --handwritten-font: "Hello Ketta", "Bulgatti", "Better Grade", sans-serif;
+    font-size: calc(14px + 0.390625vw);
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* color declarations */
+    --background-color-1: #434318;
+    --background-color-2: #FFFFFF;
+    --background-color-3: #BBDF29;
+    --accent-color-1: #FF59F6;
+    --accent-color-2: #001AFF;
+    --accent-color-3: #000000;
+    transition: 1s all;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--serif-display)
+}
+
+.famalbum .title {
+    font-family: "aguafina script";
+    font-size: 4em;
+    letter-spacing: -0.01em;
+    font-weight: 100;
+    line-height: 2em;
+    text-align: center;
+    cursor: help;
+    width: fit-content;
+    margin: 2rem auto 0;
+}
+
+.famalbum .title:hover {
+    text-decoration: 1px wavy underline;
+    transform: translateY(4px);
+}
+
+.famalbum .description {
+    text-align: center;
+    font-family: var(--index-serif-font);
+    font-size: 1rem;
+    max-width: 70%;
+    margin: auto;
+    line-height: 1.3;
+    padding-bottom: 2rem;
+}
+
+.famalbum summary {
+    list-style: none;
+}
+
+.famalbum .description a:hover,
+.famalbum .description a:active {
+    background-color: var(--background-color-3);
+}
+
+.famalbum a {
+    text-decoration: none;
+    color: var(--accent-color-1);
+}
+
+.famalbum a:hover p {
+    text-decoration: wavy underline var(--accent-color-1);
+}
+
+.indexnav {
+    position: absolute;
+    right: 1rem;
+    text-transform: uppercase;
+    cursor: help;
+}
+
+.indexnav svg {
+    margin-bottom: -3px;
+}
+
+.indexnav:hover {
+    transform: translateY(4px);
+}
+
+.filter button {
+    background-color: transparent;
+    border: 1px solid var(--background-color-3);
+    color: var(--background-color-3);
+    font-family: var(--mono-font);
+    border-radius: 4px;
+    margin: 0 .25rem;
+    cursor: pointer;
+}
+
+.filter button:hover {
+    box-shadow: 5px 5px 0px -3px var(--accent-color-1);
+}
+
+.filter button:active {
+    background-color: var(--accent-color-1);
+    color: var(--background-color-1);
+    border: 1px solid var(--accent-color-1);
+}
+
+#dragdiv {
+    position: absolute;
+    z-index: 9;
+    cursor: move;
+}
+
+.famalbum {
+    background-color: var(--background-color-1);
+    color: var(--accent-color-1);
+}
+
+.famalbum .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.famalbum .grid .grid-item {
+    max-width: 14em;
+    text-align: center;
+    margin: 1em;
+    flex-direction: column;
+    align-self: center;
+    background: var(--background-color-2);
+    border: 2px solid var(--accent-color-1);
+}
+
+.famalbum .grid .grid-item:hover {
+    box-shadow: 5px 5px 0px -3px var(--accent-color-1);
+}
+
+.famalbum .grid .grid-item p {
+    font-family: var(--serif-display);
+}
+
+.famalbum .grid .grid-item a:hover p.caption {
+    text-decoration: none;
+}
+
+.famalbum .grid .grid-item .nametitle {
+    font-family: var(--serif-display-2);
+    font-size: 1.513em;
+    color: var(--accent-color-1);
+    max-width: 90%;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.famalbum .grid .grid-item .quote {
+    color: var(--background-color-1);
+    padding: 0 1rem;
+}
+
+.famalbum .grid .grid-item .one {
+    font-family: "Hello Ketta" !important;
+    font-size: 1.5rem;
+}
+
+.famalbum .grid .grid-item .two {
+    font-family: "Better Grade" !important;
+    font-size: 1.8rem;
+}
+
+.famalbum .grid .grid-item .three {
+    font-family: "Bulgatti" !important;
+    letter-spacing: 0.037em;
+    line-height: 2;
+}
+
+.famalbum .grid .grid-item p.caption {
+    font-family: var(--mono-font);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    color: var(--accent-color-3);
+    margin-top: -12px;
+}
+
+.famalbum .grid .grid-item img {
+    width: 100%;
+    mix-blend-mode: darken;
+    border-radius: 20PX;
+}
+
+.famalbum .grid .grid-item.flip {
+    cursor: cell;
+}
+
+.famalbum .grid .grid-item.flip .back {
+    display: none;
+}
+
+.famalbum .grid .grid-item.flip:hover .back {
+    display: block;
+    position: absolute;
+    max-width: 14em;
+    mix-blend-mode: normal;
+    transition: 1s ease;
+}
+
+.grid-item:hover .more-info i {
+    padding-left: 20px;
+    transition-duration: .5s;
+}
+
+.grid-item:hover .grid-item-wrapper {
+    padding: 2% 2%;
+    margin: -2% -2%;
+}
+
+/* fullscreen toggle */
+
+.gallery img {
+    cursor: zoom-in;
+}
+
+#fullpage {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: contain;
+    background-repeat: no-repeat no-repeat;
+    background-position: center center;
+    background-color: rgba(0, 0, 0, 0.468);
+    cursor: zoom-out;
+}
+
+/* filter styling */
+
+.filterDiv {
+    display: none;
+}
+
+.show {
+    display: inline-flex;
+}
+
+.container {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+/* index & footer main */
+.famalbum .index {
+    font-family: var(--index-serif-font);
+    background: var(--accent-color-1);
+    color: var(--background-color-1);
+    border: 1px solid var(--background-color-1);
+    font-size: .7rem;
+    margin: 10em 1em 1em 1em;
+}
+
+
+.famalbum .index h2 {
+    text-align: center;
+    border-bottom: 3px double var(--background-color-1);
+    padding-bottom: 0.5rem;
+}
+
+.famalbum .index ul.headers {
+    column-count: 3;
+    gap: 10px;
+    padding: 10px;
+}
+
+.famalbum .index li {
+    line-height: 1.7;
+}
+
+.famalbum .index li.columns {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.famalbum .index li.columns li {
+    text-indent: 5px;
+}
+
+.famalbum .index li.border {
+    border-right: 1px solid black;
+}
+
+.famalbum .index li,
+.famalbum .index ul {
+    list-style: none;
+}
+
+.famalbum .index ul {
+    padding-left: .5rem;
+}
+
+.famalbum .index a {
+    color: var(--background-color-1);
+}
+
+.famalbum .index a:hover {
+    text-decoration: wavy underline var(--background-color-1);
+}
+
+.famalbum footer {
+    padding: .5rem;
+}
+
+.famalbum footer p,
+.famalbum footer a {
+    font-family: var(--sans-serif-font);
+    font-size: .5rem;
+}
+
+.famalbum footer a {
+    opacity: .7;
+}
+
+.famalbum footer a:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* individual pages */
+.storypages {
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    margin-top: .5rem;
+}
+
+nav a {
+    border: 1px solid var(--accent-color-2);
+    color: var(--accent-color-2);
+    padding: .3rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: .7rem;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    background-color: var(--accent-color-2);
+    color: var(--background-color-1);
+}
+
+.storypages nav a:hover {
+    background-color: var(--accent-color-2);
+    color: var(--background-color-3);
+    border: 1px solid var(--background-color-3);
+}
+
+.storypages.giovana nav a {
+    border: 1px solid var(--accent-color-1);
+    color: var(--accent-color-1);
+}
+
+.storypages.giovana nav a:hover {
+    background-color: var(--accent-color-1);
+    color: var(--background-color-1);
+}
+
+.transcript {
+    column-count: 3;
+    gap: 10px;
+    padding: 10px;
+    list-style: none;
+}
+
+.transcript p,
+.transcriptonly p {
+    font-family: var(--serif-font);
+    font-weight: 243;
+    font-variation-settings: "opsz"1;
+    font-style: normal;
+    font-size: .8rem;
+    line-height: 1.6;
+}
+
+.storypages.latrachi {
+    background-color: var(--background-color-2);
+}
+
+.storypages.latrachi nav a:hover {
+    background-color: var(--accent-color-2);
+    color: var(--background-color-2);
+}
+
+.storypages.giovana p {
+    color: var(--background-color-2);
+}
+
+.storypages.giovana h1 {
+    color: var(--background-color-3);
+}
+
+
+.storypages h1 {
+    margin-bottom: 0;
+    color: var(--background-color-1);
+}
+
+.storypages .transcriptonly h1 {
+    margin: 1rem;
+}
+
+.storypages .transcriptonly.threecolumns {
+    column-count: 3;
+}
+
+.storypages p {
+    color: var(--background-color-1);
+    text-indent: 1rem;
+}
+
+.storypages strong {
+    font-family: var(--serif-font);
+    color: var(--accent-color-1);
+    font-size: .7rem;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.storypages .english,
+.storypages.giovana p.english {
+    color: var(--accent-color-1);
+}
+
+.storypages audio {
+    max-width: 20em;
+}
+
+.transcript img.inline {
+    max-width: 12rem;
+    mix-blend-mode: darken;
+}
+
+.transcript .gallery:nth-of-type(even) {
+    float: left;
+    padding-right: 1rem;
+}
+
+.transcript .gallery:nth-of-type(even):hover {
+    transform: rotate(-5deg);
+}
+
+.transcript .gallery:nth-of-type(odd) {
+    float: right;
+    padding-left: 1rem;
+}
+
+.transcript .gallery:nth-of-type(odd):hover {
+    transform: rotate(5deg);
+}
+
+.gallery img {
+    max-width: 15em;
+    height: fit-content;
+}
+
+.galleryonly {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* la mocha row image placement */
+
+.mocha .gallery img#draggable-elem:nth-child(1) {
+    left: 14%;
+}
+
+.mocha .gallery img#draggable-elem:nth-child(2) {
+    left: 37%;
+    top: 25%;
+}
+
+.mocha .gallery img#draggable-elem:nth-child(3) {
+    left: 37%;
+    top: 80%;
+}
+
+.mocha .gallery img#draggable-elem:nth-child(4) {
+    left: 59%;
+}
+
+.mocha .gallery img#draggable-elem:nth-child(5) {
+    left: 80%;
+}
+
+.galleryonly img {
+    max-width: 33%;
+    height: -moz-available;
+}
+
+.storypages #container {
+    position: relative;
+    left: 0;
+    height: 20em;
+}
+
+.storypages button.audio {
+    margin-right: .4rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: -moz-available;
+    border-radius: 20px;
+    border: 1px solid;
+    font-family: var(--serif-font);
+    color: var(--background-color-1);
+    background-color: var(--background-color-3);
+}
+
+.storypages button.audio:hover {
+    background-color: var(--background-color-1);
+    color: var(--background-color-3);
+}
+
+#draggable-elem {
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    cursor: move;
+    z-index: 2;
+}
+
+/* gradients ? */
+
+body.cyntia {
+    background: linear-gradient(180deg, rgba(234, 235, 216, 0) 0%, rgba(229, 235, 196, 0.65) 100%);
+}
+
+body.evelyn {
+    background: linear-gradient(180deg, rgba(186, 220, 239, 0) 0%, rgba(186, 220, 239, 0.5) 100%);
+    height: 100vh;
+}
+
+body.giovana {
+    background: linear-gradient(180deg, #434318 0%, #828243 100%);
+}
+
+.elnegromiguel .container {
+    display: flex;
+    flex-direction: row;
+}
+
+.elnegromiguel .column {
+    padding: 0 2rem;
+}
+
+.elnegromiguel button.audio {
+    margin-top: 1em;
+}
+
+.elnegromiguel .gallery {
+    display: flex;
+    justify-content: space-around;
+}
+
+.elnegromiguel .gallery img:hover {
+    transform: rotate(-5deg);
+}
+
+.rosario #container img {
+    left: 50%;
+}
+
+.rosario #container img:nth-of-type(1) {
+    top: 42%;
+}
+
+.rosario #container img:nth-of-type(2) {
+    top: 107%;
+}
+
+.rosario #container img:nth-of-type(3) {
+    top: 175%;
+}
+
+.rosario #container img:nth-of-type(4) {
+    top: 241%;
+}
+
+.rosario #container img:nth-of-type(5) {
+    top: 298%;
+}
+
+.rosario #container img:nth-of-type(6) {
+    top: 364%;
+}
+
+.rosario #container img:nth-of-type(7) {
+    top: 430%;
+}
+
+
+
+.storypages.evelyn button.audio:hover {
+    background-color: #FF7A00;
+    color: var(--accent-color-2);
+}
+
+.storypages.evelyn p,
+.storypages.evelyn .transcriptonly h1 {
+    color: #FF7A00;
+}
+
+.storypages.evelyn .english {
+    color: var(--accent-color-2);
+}
+
+.evelyn .container {
+    display: flex;
+    flex-direction: row;
+}
+
+.evelyn .column {
+    padding: 3em;
+    padding-top: 1rem;
+}
+
+.gallerypages {
+    background-color: var(--background-color-1);
+    color: var(--accent-color-1);
+}
+
+.gallerypages .gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.gallery.nofullscreen img {
+    cursor: crosshair;
+}
+
+.gallerypages .gallery img {
+    max-width: 40em;
+    height: auto;
+}
+
+.gallerypages .gallery img:hover {
+    transform: rotate3d(3, 3, 3, 13deg);
+}
+
+.gallerypages nav a {
+    background-color: var(--background-color-3);
+}
+
+.storypages.bg::before {
+    background-image: url("../assets/extra/0279.jpg");
+    background-size: cover;
+    background-position-y: center;
+    opacity: .3;
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 113%;
+    height: 122%;
+    z-index: -8;
+}
+
+.transcript.bisect {
+    display: flex;
+}
+
+.transcript .twocolumn {
+    padding: 2rem;
+    padding-top: 1rem;
+    max-width: 45%;
+}
+
+/* Flying Image
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.flier {
+    pointer-events: none;
+}
+
+.flier>* {
+    animation: fly 100s linear infinite;
+    pointer-events: none !important;
+    top: 0;
+    left: 0;
+    transform: translateX(-120%) translateY(-120%) rotateZ(0);
+    position: fixed;
+    animation-delay: 1s;
+    z-index: 999999;
+    max-width: 240px;
+    height: auto;
+}
+
+
+@keyframes fly {
+
+    98.001%,
+    0% {
+        display: block;
+        transform: translateX(-200%) translateY(100vh) rotateZ(0deg)
+    }
+
+    15% {
+        transform: translateX(100vw) translateY(-100%) rotateZ(180deg)
+    }
+
+    15.001%,
+    18% {
+        transform: translateX(100vw) translateY(-30%) rotateZ(0deg)
+    }
+
+    40% {
+        transform: translateX(-200%) translateY(3vh) rotateZ(-180deg)
+    }
+
+    40.001%,
+    43% {
+        transform: translateX(-200%) translateY(-100%) rotateZ(-180deg)
+    }
+
+    65% {
+        transform: translateX(100vw) translateY(50vh) rotateZ(0deg)
+    }
+
+    65.001%,
+    68% {
+        transform: translateX(20vw) translateY(-200%) rotateZ(180deg)
+    }
+
+    95% {
+        transform: translateX(10vw) translateY(100vh) rotateZ(0deg)
+    }
+}
+
+/* loader screen */
+#overlayer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background: var(--background-color-1);
+}
+
+.preloader {
+    z-index: 3;
+    position: absolute;
+    width: 10em;
+    top: 20%;
+    left: 50%;
+    margin: auto;
+    margin-left: -3em;
+}
+
+.preloader p {
+    font-family: var(--handwritten-font);
+    color: var(--background-color-3);
+    font-size: 3em;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.loading {
+    width: 8em;
+    animation: loading 5.3s linear infinite;
+    margin-left: 1em;
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* media breakpoints */
+@media screen and (max-width: 599px) {
+    .transcript {
+        column-count: 1;
+        flex-direction: column;
+    }
+
+    .storypages .transcriptonly.threecolumns,
+    .storypages .twocolumn {
+        column-count: 1;
+        margin: auto;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .gallerypages .gallery img {
+        max-width: 16em;
+    }
+
+    .storypages.bg::before {
+        height: 192px;
+        z-index: -8;
+        background-size: contain;
+    }
+
+    .famalbum .title {
+        padding-top: 2rem;
+    }
+
+    .famalbum p.description {
+        font-size: 1rem;
+        max-width: 98%;
+        margin: auto;
+        line-height: 1.3;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--accent-color-1);
+        margin-bottom: 2rem;
+    }
+
+    .famalbum .grid .grid-item {
+        max-width: 18em;
+    }
+
+    .gallery img#draggable-elm {
+        margin: auto;
+        text-align: center;
+        display: block;
+    }
+
+    .famalbum .index ul.headers {
+        column-count: 1;
+    }
+
+    .famalbum .index li.border {
+        border-right: 0;
+    }
+
+    .storypages h1.english {
+        padding-bottom: .5rem;
+    }
+
+    .elnegromiguel .container {
+        flex-direction: column;
+    }
+
+    .elnegromiguel .container .column:nth-of-type(1) {
+        margin: auto;
+    }
+
+    .elnegromiguel .container .column:nth-of-type(2) {
+        text-align: center;
+    }
+
+    /* rosario photo alignment */
+
+    .rosario #container img:nth-of-type(1) {
+        top: 20%;
+    }
+
+    .rosario #container img:nth-of-type(2) {
+        top: 40%;
+    }
+
+    .rosario #container img:nth-of-type(3) {
+        top: 60%;
+    }
+
+    .rosario #container img:nth-of-type(4) {
+        top: 80%;
+    }
+
+    .rosario #container img:nth-of-type(5) {
+        top: 100%;
+    }
+
+    .rosario #container img:nth-of-type(6) {
+        top: 120%;
+    }
+
+    .rosario #container img:nth-of-type(7) {
+        top: 140%;
+    }
+
+    .evelyn .container {
+        flex-direction: column;
+    }
+
+    .elnegromiguel .gallery {
+        display: block;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .elnegromiguel .gallery img {
+        max-width: 11em;
+    }
+
+    .preloader {
+        left: 30%;
+        margin-left: auto;
+    }
+
+    .container {
+        margin-top: 0;
+    }
+
+    .transcript .twocolumn {
+        padding: 0 !important;
+    }
+}
+
+@media screen and (max-width:890px) {
+    .storypages h1 {
+        padding: 1rem;
+        padding-bottom: 0;
+    }
+
+    .transcript.bisect {
+        display: inline;
+        column-count: 1;
+    }
+
+    .transcript .twocolumn {
+        padding: 0 3rem;
+        max-width: 100%;
+    }
+
+    .storypages button.audio {
+        margin: 1rem;
+    }
+
+    body.evelyn {
+        height: 100%;
+    }
+
+    .evelyn .column {
+        padding: 1rem 0;
+    }
+
+    .famalbum .grid .grid-item.flip:hover .back {
+        max-width: 18em;
+    }
+
+    .famalbum .index {
+        font-size: 1rem;
+    }
+
+    .famalbum footer p,
+    .famalbum footer a {
+        font-size: .7rem;
+    }
+}
